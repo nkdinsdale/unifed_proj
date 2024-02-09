@@ -1,0 +1,478 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>UniFed: A unified deep learning framework for segmentation of partially labelled, distributed neuroimaging data </title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="UniFed: A unified deep learning framework for segmentation of partially labelled, distributed neuroimaging data" />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">UniFed: A unified deep learning framework for segmentation of partially labelled, distributed neuroimaging data </span>
+		<br>
+		<br>
+		<center><font size="+2"><i>BioRxiv 2024 </font></center>
+		<table align=center width=800px>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=130px>
+						<center>
+							<span style="font-size:24px"><a href="https://nkdinsdale.github.io/nkdinsdale/">Nicola Dinsdale</a><sup>1</sup></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://www.ndcn.ox.ac.uk/team/mark-jenkinson">Mark Jenkinson</a><sup>2,</sup><sup>3,</sup><sup>4</sup></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://www.pmb.ox.ac.uk/person/dr-ana-namburete">Ana Namburete</a><sup>1,</sup><sup>2</sup></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+					<br>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>1</sup>Oxford Machine Learning in NeuroImaging (OMNI) Lab,  University of Oxford</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>2</sup>Wellcome Institute for Integrative NeuroImaging (WIN), University of Adelaide </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>3</sup>Australian Institute for Machine Learning (AIML), University of Adelaide </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>4</sup>South Australian Health and Medical Research Institute (SAHMRI) </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+
+			<table align=center width=500px>
+				<tr>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href=https://www.biorxiv.org/content/10.1101/2024.02.05.578912v1>[Paper]</a></span>
+						</center>
+					</td>
+
+
+	<center>
+		<table align=center width=1000px>
+			<tr>
+				<td width=1000px>
+					<center>
+						<img class="round" style="width:1000px" src="./resources/summary_figure.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				It is essential to be able to combine datasets across imaging centres to represent the breadth of biological variability present in clinical populations. This, however, leads to two challenges: first, an increase in non-biological variance due to scanner differences, known as the harmonisation problem, and, second, data privacy concerns due to the inherently personal nature of medical images. Federated learning has been proposed to train deep learning models on distributed data; however, the majority of approaches assume fully labelled data at each participating site, which is unlikely to exist due to the time and skill required to produce manual segmentation labels. Further, they assume all of the sites are available when the federated model is trained. Thus, we introduce UniFed, a unified federated harmonisation framework which enables three key processes to be completed: 1) the training of a federated harmonisation network, 2) the selection of the most appropriate pretrained model for a new unseen site, and 3) the incorporation of a new site into the harmonised federation. We show that when working with partially labelled distributed datasets, our methods produce high-quality image segmentations and enable all sites to benefit from the knowledge of the federation. The framework is flexible and widely applicable across segmentation tasks and choices of model architecture.
+
+
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<center><h1>UniFed</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					We propose UniFed, a unified federated harmonisation framework, which enables three key processes to be completed:
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					1)  the training of a federated harmonisation network on partially labelled data
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					2) the selection of the most appropriate pretrained model for a new unseen
+					site
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+
+					3)  the incorporation of a new site into the harmonised federation. The framework is general
+					and could be applied to many architectures and tasks. 
+				</td>
+			</tr>
+		</center>
+	</table>
+
+
+		<center><h1>Results</h1></center>
+	<center><font size="+2"><i>Partially Labelled Federated Learning </font></center>
+		<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:700px" src="./resources/partially_labeled_tab.png"/>
+        		</center>
+        	</td>
+		</tr>
+	</table>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> The results for the partially labelled FL framework are presented, for increasing numbers of fully
+					supervised sites within the federation. The Dice score is averaged over the 4 tissue classes. Federation are the Dice values averaged across the tissue
+					classes, for sites within the federation, and Unseen are the Dice values averaged across the unseen sites. UniFed - B loss = ablation study removing
+					the Bhattacharyya loss, UniFed - Equal = ablation study using FedAvg as the default aggregation scheme. The best performing method is in bold.
+					* indicates statistical significance between best method and next performing method. </font>
+    		</center>
+
+		</td>
+    </tr>
+
+
+	<tr>
+		<td width=1000px>
+			<center>
+				<img class="round" style="width:700px" src="./resources/2sites_results.png"/>
+			</center>
+		</td>
+	</tr>
+
+	<br>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> Quantitative and qualitative results for the partially labelled federated setting with 2 sites
+					supervised. (a) Boxplots of the dice scores for FedAvg, FADA and UniFed, showing the performance
+					of the federation and unseen sites, and broken down by site. Points show performance for each test
+					subject. (b) Qualitative segmentation results for a labelled site (Leuven) and unlabelled site (KKI)
+					showing an axial, sagittal and coronal view, cropped around the region of interest. Light blue = brain
+					stem, Dark blue = thalamus, pink = hippocampus, red = putamen.</font>
+    		</center>
+
+		</td>
+    </tr>
+
+	<tr>
+		<td width=1000px>
+			<center>
+				<img class="round" style="width:700px" src="./resources/features.png"/>
+			</center>
+		</td>
+	</tr>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> We also show that we share much less information than other methods, reducing the chance of data leakage.</font>
+    		</center>
+
+		</td>
+    </tr>
+
+
+	<tr>
+		<td width=1000px>
+			<center>
+				<img class="round" style="width:700px" src="./resources/percentage.png"/>
+			</center>
+		</td>
+	</tr>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> Partially Labelled FL Results - % Labelled. The results for the partially labelled FL framework are presented, when we have the fully supervised
+					reference site and an increasing percentage of labelled data at each of the remaining five labelled sites in the federation. The Dice score is presented averaged
+					over the four tissue classes. Federation are the Dice values averaged across the sites from within the federation, and Unseen are the Dice values averaged
+					across the unseen sites. The best performing method is in bold, star indicates statistical significance between best method and next performing method</font>
+    		</center>
+
+		</td>
+    </tr>
+
+
+
+
+	<br>
+	<center><font size="+2"><i>Best Model Selection</font></center>
+			<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:800px" src="./resources/model_selection.png"/>
+        		</center>
+        	</td>
+		</tr>
+
+		<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> For each unseen site, the Dice score produced by a model
+					from the model zoo is plotted against the Bhattacharyya distance between the reference feature dis-
+					tributions and the unseen site feature distribution. The models trained for Table 1 were used as the
+					model zoo, across the different methods and number of sites used in training. The colour of the
+					marker corresponds to the method used to train the model and the size of the marker corresponds
+					to the number of labelled sites that were used to train the model. Dice score clearly correlated with
+					the Bhattacharyya distance and the shorter the distance, the more similar the feature distributions,
+					meaning that the Bhattacharyya distance can be used for model selection. </font>
+    		</center>
+
+		</td>
+    </tr>
+
+
+	<center><font size="+2"><i>Model Adaptation</font></center>
+		<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:800px" src="./resources/model_adaptation.png"/>
+        		</center>
+        	</td>
+		</tr>
+
+		<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> The results are shown for adapting a source model to the unseen
+					sites, with the Dice score averaged over the unseen sites. Two source models were considered, the
+					NYU only source model and the UniFed model trained with all six sites supervised. The best method
+					is shown in bold. </font>
+    		</center>
+
+		</td>
+    </tr>
+
+	<hr>
+	<br>
+		<table align=center width=850px>
+			<center>
+				<tr>
+					<td>
+						<center><h1>Conclusion</h1></center>
+
+						We have presented UniFed, a unified federated harmonisation framework that enables the train-
+ing of high performing models for distributed and partially labelled datasets. The three parts: train-
+ing of a federated network, model selection and model adaptation, are linked by the simple modelling
+of the features as a Gaussian distribution. Therefore, the approach is general and widely applicable to
+different segmentation tasks and choices of model architecture, and thus, to many distributed imag-
+ing studies.
+					</td>
+				</tr>
+			</center>
+		</table>
+
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=300px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					N and AN are is grateful for
+					support from the Bill
+					and Melinda Gates Foundation.  MJ is supported by the National Institute for Health Research, Oxford Biomedical Research
+					Centre, and this research was funded by the Wellcome Trust
+					[215573/Z/19/Z]. WIN is supported by core funding from
+					the Wellcome Trust [203139/Z/16/Z]. 
+
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
